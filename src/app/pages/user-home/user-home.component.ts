@@ -22,6 +22,8 @@ export class UserHomeComponent {
 
   ngOninit() {
     this._loggedService.loggedIn.subscribe((state) => {
+      console.log(state);
+
       this.isLoggeIn=state
     })
     if (this.token) {
