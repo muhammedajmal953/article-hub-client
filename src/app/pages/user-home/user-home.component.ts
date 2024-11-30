@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { LoggedInService } from '../../services/logged-in.service';
 
@@ -13,14 +13,14 @@ import { LoggedInService } from '../../services/logged-in.service';
   templateUrl: './user-home.component.html',
   styleUrl: './user-home.component.css'
 })
-export class UserHomeComponent {
+export class UserHomeComponent implements OnInit{
   isLoggeIn=false
   constructor(private _router: Router, private _loggedService:LoggedInService){}
   token=localStorage.getItem('user')
   showmenu = false
 
 
-  ngOninit() {
+  ngOnInit() {
     this._loggedService.loggedIn.subscribe((state) => {
       console.log('maeidkeidd',state);
 

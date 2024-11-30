@@ -3,6 +3,7 @@ import { SignupComponent } from "../../components/signup/signup.component";
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import Swal from 'sweetalert2';
+import { LoggedInService } from '../../services/logged-in.service';
 
 @Component({
   selector: 'app-user-signup',
@@ -12,11 +13,9 @@ import Swal from 'sweetalert2';
   styleUrl: './user-signup.component.css'
 })
 export class UserSignupComponent {
-  constructor(private _router: Router,private _userService:UserService) { }
+  constructor(private _router: Router,private _userService:UserService,private _loggedInService:LoggedInService) { }
 
   login() {
-    console.log('clicked');
-
     this._router.navigate(['/'])
   }
 
@@ -34,6 +33,7 @@ export class UserSignupComponent {
           })
 
           localStorage.setItem('user', res.data)
+          this._loggedInService.login()
           this._router.navigate(['/feed'])
         }
       },
