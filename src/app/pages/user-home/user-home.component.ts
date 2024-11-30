@@ -22,7 +22,7 @@ export class UserHomeComponent {
 
   ngOninit() {
     this._loggedService.loggedIn.subscribe((state) => {
-      console.log(state);
+      console.log('maeidkeidd',state);
 
       this.isLoggeIn=state
     })
