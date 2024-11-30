@@ -3,6 +3,7 @@ import { LoginComponent } from "../../components/login/login.component";
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import Swal from 'sweetalert2';
+import { LoggedInService } from '../../services/logged-in.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ import Swal from 'sweetalert2';
 })
 export class UserLoginComponent {
 
-  constructor(private _router: Router,private _userService:UserService) {
+  constructor(private _router: Router,private _userService:UserService,private _loggedInServices:LoggedInService) {
 
   }
 
@@ -35,6 +36,7 @@ export class UserLoginComponent {
             position:'top'
           })
           localStorage.setItem('user', res.data)
+          this._loggedInServices.login()
           this._router.navigate(['/feed'])
         }
       },
