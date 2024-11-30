@@ -1,5 +1,5 @@
 
 
 export const environments = {
-  api:'http://localhost:3000'
+  api:'https://article-server-cao5.onrender.com'
 }
