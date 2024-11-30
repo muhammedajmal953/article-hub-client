@@ -15,7 +15,7 @@ export class LoggedInService {
     this.loggedSubject.next(true)
   }
   logout() {
-    this.loggedSubject.next(true)
+    this.loggedSubject.next(false)
   }
 
 
