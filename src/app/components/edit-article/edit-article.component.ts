@@ -143,8 +143,7 @@ export class EditArticleComponent implements OnInit {
             showConfirmButton: false,
             title: res.message,
           });
-
-          this._router.navigate(['/feed']);
+          this._router.navigate(['/myArticles']);
         }
       },
       error: (error) => {
